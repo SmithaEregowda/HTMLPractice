@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <style>
+        .float-container {            
+            padding: 20px;
+        }
+
+        .float-child {
+            width: 50%;
+            float: left;
+            padding: 20px;
+           
+        }
+    </style>
+
+
+
+
+<body>
+    <div class="float-container">
+        <div class="float-child">
+            <form>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th colspan="4">register</th>
+        
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>First Name:</td>
+                            <td><input type="text" name="studentFirstName"></td>
+                        </tr>
+                        <tr>
+                            <td>Last Name:</td>
+                            <td><input type="text" name="studentLastName"></td>
+                        </tr>
+                        <tr>
+                            <td>Mobile:</td>
+                            <td><input type="number" name="studentMobile"></td>
+                        </tr>
+                        <tr>
+                            <td>Email:</td>
+                            <td><input type="email" name="studentEmail"></td>
+                        </tr>
+                         <tr>
+                            <td>Data-of-birth:</td>
+                            <td><input type="text" name="studentDOB"></td>
+                        </tr>      
+                        <tr>
+                            <td>Gender:</td>
+                            <td><input type="radio" name = "gender" value="Male"> Male
+                                <input type="radio" name = "gender" value="Female"> Female
+                            </td>
+                        </tr>          
+                          <tr>
+                            <td>Skills:</td>
+                            <td>
+                                <input type="checkbox" class="skills">Java
+                                <input type="checkbox" class="skills">JavaScript
+                                <input type="checkbox" class="skills">Python
+                            </td>
+                        </tr> 
+                        
+                        <tr>
+                            <td>Country:</td>
+                            <td><select name="studentCountry">
+                                    <option value="">Select</option>
+                                    <option value="india">india</option>
+                                    <option value="pakisthan">pakisthan</option>
+                                    <option value="australia">australia</option>
+                                    <option value="south_africa">south_africa</option>
+                                    <option value="england">england</option>
+                            </select></td>
+                        </tr> 
+                        <tr>
+                            <td>User Name:</td>
+                            <td><input type="text" name="userName"></td>
+                        </tr>
+                         <tr>
+                            <td>Password</td>
+                            <td>
+                            <input type="password" name="password" id="pwd" size="20" onkeyup="return check_password_safety(this.value);" 
+                                 title="Password" min="6" maxlength="20" required>
+                                <span id="password_info"><b></b></span></td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Re-type password</td>
+                            <td>
+                            <input type="password" id="pass2" required 	onkeyup="return check_password_confirm();"
+                                placeholder="Confirm Password" title="Password" min="6"
+                                maxlength="20"> <span id="password_confirm"><b></b></td>
+                        </tr>
+                        <tr >
+                            <td colspan="4"><input type="submit" value="register" /> <input
+                                type="reset" value="Refresh" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+        <div id="tablecontainer float-child">
+            <table border="1">
+                <thead>
+                    <th>Sl No</th>
+                    <th>FirtName</th>
+                    <th>LastName</th>
+                    <th>Mobile</th>
+                    <th>Email</th>
+                    <th>DOB</th>
+                    <th>Gender</th>
+                    <th>Skills</th>
+                    <th>Country</th>
+                    <th>UserName</th>
+                    <th>Action</th>
+                </thead>
+
+                <tbody id="tb">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <!-- practice number 1 : script tag should be present just above the body tag -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        /* practice number 2 : to start our javascript code should be start with document.ready as the first statement*/
+        $(document).ready(function () {
+            /* practice number 3 : any event handling function should start like below
+             $(document).on("click", "id or class selector", function () {
+             $(document).on("change", "#submit", function () {
+             $(document).on("keyup", ".submit", function () {
+            
+            */
+            $(document).on("click", "#submit", function () {
+
+
+            });
+
+        });
+
+        /* practice number 4 : function should be outside document.ready functions are ment to reusability*/
+        function validateNewsForm() {
+
+        }
+    </script>
+</body>
+
+</html>

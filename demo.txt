@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            h1{
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>hloo</h1>
+        <p id="p1">heyy smitha</p>
+    </body>
+</html>

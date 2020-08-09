@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>studentmarkscard</title>
+    <style>
+        body {
+            background-color: teal;
+        }
+
+        .container {
+            border: 1px solid black;
+            width: 800px;
+            height: 600px;
+            margin-top: 200px;
+            margin-left: 600px;
+            margin-right: 750px;
+            background-color: black;
+            border-radius: 30px;
+           
+        }
+
+        .textcontainer {
+            position: absolute;
+            left: 400px;
+            color: teal;
+            top: 300px;
+            font-size: 20px;
+
+
+        }
+
+        .inputcontainer {
+            color: white;
+            position: absolute;
+            right: 700px;
+            top: 300px;
+            font-size: 20px;
+        }
+
+        input[type=number] {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid white;
+            color: white;
+        }
+
+        #submitbtn {
+            background-color: red;
+        }
+        #demo{
+            font-size: 30px;
+        }
+        footer{
+            background-color:red;
+            
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="textcontainer">
+            <h1>
+                <pre>
+                <b>student 
+                marks 
+                card</b>
+            </pre>
+            </h1>
+        </div>
+        <div class="inputcontainer">
+
+           
+            kannada: <input type="number" id="kann"><br><br><br>
+            english: <input type="number" id="eng"><br><br><br>
+            maths: <input type="number" id="mat"><br><br><br>
+            science: <input type="number" id="sci"><br><br><br>
+            <input type="submit" id="submitbtn">
+            <footer> <p id="demo"></p></footer>
+        </div>
+        
+    </div>
+    <script>
+        document.getElementById("submitbtn").addEventListener("click", function () {
+            var kannada = document.getElementById("kann");
+            var english = document.getElementById("eng");
+            var maths = document.getElementById("mat");
+            var science = document.getElementById("sci");
+            let total = eval(kannada.value) + eval(english.value) +
+                eval(maths.value) + eval(science.value);
+            let percentage = (total / 400) * 100;
+            let text;
+            let emoji;
+            let colors;
+            if (total < 140) {
+                text = "C";
+             emoji=String.fromCodePoint(0x1F61E);
+             colors=document.querySelector("footer").style.backgroundColor="red";
+                        }
+            else if (total < 380 && total > 140) {
+                text = "B";
+                emoji=String.fromCodePoint(0x1F603);
+                colors=document.querySelector("footer").style.backgroundColor="teal";
+            }
+            else if (total <= 400 && total > 380) {
+                text = "A";
+                emoji=String.fromCodePoint(0x1F60A);
+                colors=document.querySelector("footer").style.backgroundColor="green";
+            }
+            document.getElementById("demo").innerHTML = "your marks is" + " " + total + "/" + 400 + "<br>" +
+                "your percentage is" + " " + percentage + "%" +
+                "<br>" + "your grade is" + " " + text+" "+emoji+" "+colors;
+
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+   <header>
+    <title>
+        calci app
+    </title>
+    <link rel="stylesheet" href="calci.css">
+   </header>
+   <body>
+       <div class="container" >
+       input:
+       <input type="text" id="f1">
+       <br>
+       <br>
+       <br>
+       
+      
+       <input class="input" type="button" value="9" 
+       onclick="f1.value+='9'">
+       &nbsp;&nbsp;
+       <input class="input" type="button" value="8" 
+       onclick="f1.value+='8'">&nbsp;&nbsp;
+       <input class="input" type="button" value="7" 
+       onclick="f1.value+='7'">&nbsp;&nbsp;
+       <input class="input" type="button" value="+" id="plus"
+       onclick="f1.value+='+'"><br><br>
+       <input class="input" type="button" value="6" 
+       onclick="f1.value+='6'">&nbsp;&nbsp;
+       <input class="input" type="button" value="5" 
+       onclick="f1.value+='5'">&nbsp;&nbsp;
+       <input class="input" type="button" value="4" 
+       onclick="f1.value+='4'">&nbsp;&nbsp;
+       <input class="input" type="button" value="-" id="minus"
+       onclick="f1.value+='-'"><br><br>
+       <input class="input" type="button" value="3" 
+       onclick="f1.value+='3'">&nbsp;&nbsp;
+       <input class="input" type="button" value="2" 
+       onclick="f1.value+='2'">&nbsp;&nbsp;
+       <input class="input" type="button" value="1" 
+       onclick="f1.value+='1'">&nbsp;&nbsp;
+       <input class="input" type="button" value="*" id="multi"
+       onclick="f1.value+='*'"><br><br>
+       <input class="input" type="button" value="0" 
+       onclick="f1.value+='0'">&nbsp;&nbsp;
+       <input class="input" type="button" id="divide" 
+        value="/" 
+       onclick="f1.value+='/'">&nbsp;&nbsp;
+       &nbsp; 
+       <input type="button" value="="
+        onclick="f1.value=eval(f1.value)">
+        <br><br>
+       <input type="button" id="clear" value="clear"
+       onclick="f1.value=''">
+      
+       <br>
+       <br>
+   
+       </div>
+       <script src="calci.js"></script>
+          </body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>quiz</title>
+  <link rel="stylesheet" href="quiz.css">
+</head>
+
+<body>
+  <h1>QUIZ</h1>
+  <hr>
+  <div class="startquizzcontainer">
+
+    <input type="button" id="start" value="start quiz>>>">
+  </div>
+  <form>
+    <div id="slide-show" style="display: none;">
+      <div id="mcq1" style="display: block;">
+        1.when india get freedom
+        <br> <br>
+        <input type="radio" name="radio" class="q1" id="q1a" value="1947">A.1947
+
+        <br><br>
+        <input type="radio" name="radio" id="q1b" value="1948" class="q1">B.1948
+        <br><br>
+        <input type="radio"  name="radio"id="q1c" value="1949" class="q1">C.1949
+        <br><br>
+        <input type="radio"  name="radio"id="q1d" value="1960" class="q1">D.1960
+        <p>
+          <pre></pre>
+        </p>
+        <br><br>
+      </div>
+      <div id="mcq2" style="display: none;">
+        2.where javascript will embeded
+        <br> <br>
+        <input type="radio" name="radio" class="q2" id="q2a" value="python">A.python
+
+        <br><br>
+        <input type="radio"  name="radio" id="q2b" value="java" class="q2">B.java
+        <br><br>
+        <input type="radio" name="radio" id="q2c" value="html" class="q2">C.html
+        <br><br>
+        <input type="radio" name="radio" id="q2d" value="c" class="q2">D.c
+        <p>
+          <pre></pre>
+        </p>
+        <br><br>
+      </div>
+      <div id="mcq3" style="display: none;">
+        3.for style what we use
+        <br> <br>
+        <input type="radio"  name="radio" class="q3" id="q3a" value="css">A.css
+
+        <br><br>
+        <input type="radio"  name="radio" id="q3b" value="php" class="q3">B.php
+        <br><br>
+        <input type="radio" name="radio"  id="q3c" value="boostrap" class="q3">C.boostrap
+        <br><br>
+        <input type="radio"  name="radio" id="q3d" value="both A and c" class="q3">D.bothA and C
+       
+        <br><br>
+
+      </div>
+      <input type="button" id="nextbtn" value="submit">
+      <p id="demo"></p>
+      <div id="resultcontainer" style="display: none;">
+        <input type="button" id="result" onclick="resultfun()" 
+        value="click for result>>">
+        <p id="resultdemo"></p>
+        <input type="button" value="view answer" id="view" style="display: none;"
+        onclick="viewdemo()">
+       
+      </div>
+      <p id="demo1" style="display: none;"></p>
+      <p id="demo2" style="display: none;"></p>
+      <p id="demo3" style="display: none;"></p>
+    </div>
+
+
+
+
+  </form>
+  
+  <script src="quiz.js">
+
+
+  </script>
+</body>
+
+</html>

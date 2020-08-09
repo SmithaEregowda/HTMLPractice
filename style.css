@@ -1,0 +1,46 @@
+body{
+
+text-align: center;
+
+}
+h1
+{ 
+text-align:center;
+background-color:red;
+font-family:times;
+padding:10px;
+margin:200px;
+}
+
+form{
+width:70%;
+margin:auto;
+height: 90%;
+align-items: center;
+display: inline-block;
+
+}
+div.container{
+max-width: 700px;
+margin: auto;
+padding: 10px;
+
+
+}
+fieldset{
+    background-image: linear-gradient(to right,white,grey);
+    
+    border-radius: 50px;
+
+}
+button{
+    background-color: red;
+    border-radius: 30px;
+}
+p{
+    color: red;
+    font-size: medium;
+}
+pre{
+    border:1px solid black;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<header>
+
+    <link rel="stylesheet" href="loginform.css">
+    <title>login form</title>
+</header>
+
+<body>
+
+    <b>LOGGIN FORM</b>
+    <br>
+    <br>
+    <button onclick="document.getElementById('id01')
+        .style.display='block'">
+        LOGGIN</button>
+
+    <div id="id01" class="dispp" style="display: none;">
+
+        <form>
+            <fieldset>
+                <span onclick="document.getElementById('id01')
+            .style.display='none'">&times;</span>
+                <img id="image" src="images.png" alt="images"> <br>
+                <h1> <b>LOGGIN FORM</b></h1>
+                <hr>
+                <br>
+                <br>
+                username:
+                <input type="text" name="username" id="user" placeholder="enter username"></input>
+                <br>
+                <br>
+                <br>
+                <br>
+                password:
+                <input type="password" name="password" id="pass" placeholder="enter password"></input>
+                <br>
+                <br>
+                <br>
+                <br>
+                <button id="submit" type="submit">submit</button>
+                <br>
+                <input type="checkbox" name="remember" checked>
+                remember me?</input>
+                <br>
+
+                <div id="conatiner">
+                    <button onclick="document.getElementById('id01')
+    .style.display='none'" style="background-color: red;" type="button">
+                        cancel</button>
+
+                    <span>
+                        forgot<a href="password?">password?</a>
+                    </span>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <p id="demo"></p>
+</body>
+<script src="loginform.js">
+
+</script>
+
+</html>

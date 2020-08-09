@@ -1,0 +1,64 @@
+#createstudent {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    width: 500px;
+    height:700px;
+    /* background-image: linear-gradient(to right,grey,white); */
+    background-color: transparent;
+    font-size: 130%;
+    border-radius: 5px;
+    box-shadow: 10px 10px;
+    position:relative;
+  
+    
+}
+
+#displaystudent {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    width: 500px;
+}
+button{
+    background-color: red;
+    
+}
+.studentForm{
+    background-color:honeydew;
+    border-radius: 5px;
+    color: red;
+    font-size:xx-large;
+}
+.input{
+    margin-bottom: 5px;
+    margin-left: 50px;
+    margin-top: 5px;
+    width: 200px;
+    border-radius: 10px;
+    padding: 5px;
+}
+#submit{
+    margin-left:200px ;
+    width: 100px;
+    background-color: green;
+}
+#loggin{
+    margin-left:250px ;
+    width: 100px;
+    height: 50px;
+    background-color: green;
+} 
+marquee{
+    font-size: xx-large;
+    color: red;
+    background-color:black;
+}
+body{
+    background-image: url(pexels-photo-1103970.webp);
+}
+.conatiner{
+    text-align: left;
+  margin-left: 800px;
+}
+

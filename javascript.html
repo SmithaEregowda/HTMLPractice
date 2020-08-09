@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>learning</title>
+    <style>
+        #container {
+            width: 400px;
+            height: 400px;
+            position: relative;
+            background-color: yellow;
+        }
+
+        #animate {
+            width: 40px;
+            height: 40px;
+            position: relative;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="animate"></div>
+    </div>
+    <button onclick="mymove()">submit</button>
+    <script>
+        function mymove() {
+            var elem = document.getElementById("animate");
+           var pos = 0;
+            var id = setInterval(frame, 5);
+            function frame() {
+                if (pos == 350) {
+                    clearInterval(id);
+                }
+                
+                else{
+                    pos++;
+                    elem.style.top = pos + "px";
+                    elem.style.left = pos + "px";
+                }
+               
+            }
+        }
+    </script>
+</body>
+
+</html>

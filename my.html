@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>try</title>
+
+</head>
+
+<body>
+    <form onsubmit="return false">
+        <input type="text" id="item">
+       <button type="submit" id="input" >submit</button>
+       <input type="button" value="reset" onclick="reset()">
+        <p id="demo"></p>
+    </form>
+    <table border="1">
+        <thead >
+            <th colspan="1">items</th>
+        </thead>
+        <tbody id="tbb">
+
+        </tbody>
+    </table>
+    <script>
+        var myarray=[];
+document.getElementById("input").addEventListener("click",function(){
+var items=document.getElementById("item").value;
+var myobj={
+input:items
+}
+myarray.push(myobj);
+var text=" ";
+var tbody=document.getElementById("tbb");
+for(i=0;i<myarray.length;i++){
+    text+="<tr>"+"<td>"+myarray[i].input+"</td>"+"</tr>";
+    items=" "
+}
+items=" "
+tbody.innerHTML=text;
+
+
+});
+function reset(){
+    location.reload();
+}
+    </script>
+</body>
+
+</html>

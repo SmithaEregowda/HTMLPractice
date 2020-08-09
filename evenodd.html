@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            even odd
+        </title>
+        <style>
+            p1{
+          color: red;
+            }
+        </style>
+    </head>
+    <body>
+        enter number:
+        <br>
+  <input type="number" id="num1" >
+  <p id="p1"></p>
+  <br><br>
+  
+  <input type="button" value="submit" onclick="evenodd()" >
+    </body>
+    <script>
+       
+        function evenodd(){
+            var num11=document.getElementById("num1").value;
+         
+         var p1=document.getElementById("p1");
+        num11=num11%2;
+         
+         if(num11!=0){
+         p1.textContent="*the number is odd";
+            
+         }
+        
+         else if(num11==0){
+             p1.textContent="*the number is even"
+         }
+         else if(num11==""){
+               num1.style.border="1px solid red";   
+               p1.textContent="*please enter the input";        
+         }
+        }
+
+    </script>
+</html>

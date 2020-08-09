@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<script src="jquery-3.5.1.js">
+</script>
+<script>
+$(document).ready(function(){
+$("button").click(function(){
+var maths=eval($("#mat").val());
+var science=eval($("#sci").val());
+var total=maths+science;
+$("#demo").html("the total marks is"+" "+total);
+
+});
+});
+</script>
+    </head>
+    <body>
+maths:
+<input id="mat" type="number">
+science:
+<input id="sci" type="number"><br>
+<button>submit</button>
+<p id="demo"></p>
+    </body>
+</html>

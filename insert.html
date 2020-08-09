@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>insert</title>
+    <link rel="stylesheet" href="insert.css">
+</head>
+
+<body>
+    <!-- <h1>LOOGIN FORM</h1>
+    <form>
+        <input onclick="document.getElementById('display')
+        .style.display='block'"
+        type="button" id="loggin" value="LOGGIN">
+    </form> -->
+
+    <!-- <div id="display" style="display: none;"> -->
+        
+    <marquee>ONLINE REGISTRATION APPLICATION FORM</marquee>
+    
+  
+        <table id="createstudent" border="1">
+            <tr>
+                <th class="studentForm" colspan="2">Student Form</th>
+            </tr>
+            <tr>
+                <td><b>FirstName</b></td>
+                <td><input class="input" type="text" id="FirstName"></td>
+            </tr>
+            <tr>
+                <td><b>LastName</b></td>
+                <td><input class="input" type="text" id="LastName"></td>
+            </tr>
+            <tr>
+                <td><b>Email</b></td>
+                <td><input class="input" type="text" id="Email"></td>
+            </tr>
+            <tr>
+                <td><b>Gender</b></td>
+                <td><input type="radio" name="gender" value="male"><b>male</b>
+                    <input type="radio" name="gender" value="female"><b>female</b>
+                    <p id="gender"></p>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Skills</b></td>
+                <td><input name="skills" type="checkbox" value="Java"><b>Java</b>
+                    <input name="skills" type="checkbox" value="Python"><b>Python</b>
+                    <input name="skills" type="checkbox" value="javascript"><b>javascript</b>
+                    <input name="skills" type="checkbox" value="Angular"><b>Angular</b>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Branch</b></td>
+                <td>
+                    <select>
+                        <option class="branch" value=""> <b>select</b> </option>
+                        <option class="branch" value="cs"> <b>CS</b> </option>
+                        <option class="branch" value="ec"> <b>E&C </b></option>
+                        <option class="branch" value="civil"> <b>CS</b> </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit" 
+                    id="submit" 
+                    style="text-align:center;">submit
+                    </button>
+                </td>
+            </tr>
+        </table>
+   
+   
+    <table id="displaystudent" border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Email</th>
+                <th>GENDER</th>
+                <th>SKILLS</th>
+                <th>BRANCH</th>
+                <th>EDIT/DELETE</th>
+            </tr>
+        </thead>
+        <tbody id="tb">
+
+
+        </tbody>
+    </table>
+    <p id="demo"></p>
+    <!-- </div> -->
+
+
+
+    <script src="insert.js">
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

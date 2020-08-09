@@ -1,0 +1,30 @@
+body{
+   text-align: center;
+   
+}
+
+form{
+width: 300px;
+height: 500px;
+
+}
+div.dispp{
+    max-width: 300px;
+margin: auto;
+padding: 10px;
+background-image: url();
+
+}
+button{
+background-color: green;
+padding: 20px;
+margin: 20px;
+width: 90%;
+
+}
+#image{
+
+    width: 200px;
+}
+
+

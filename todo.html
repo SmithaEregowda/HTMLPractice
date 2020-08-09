@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>my first page</title>
+        <style>
+          
+            #btn{
+                background-color: blue;
+                padding: 10px;
+                width: 10px;
+                height: 10px;
+                border-radius: 10px;
+            }
+            #remove{
+                background-color: red;
+            }
+            
+        </style>
+    </head>
+    <body>
+           
+            <input type="text" id="input">
+            
+            <button id="btn" type="button"><i class="fas fa-plus"></i></button>
+            </div>
+            <ul id="list">
+             <input type="button" value="remove" id="remove">
+            
+            </ul>
+
+       
+    
+    </body>
+    <script>
+     var button=document.getElementById("btn");
+     button.addEventListener("click",function(){
+         var input=document.getElementById("input");
+         var ul=document.querySelector("ul");
+         var li=document.createElement("li");
+         li.appendChild(document.createTextNode(input.value));
+         ul.appendChild(li);
+         input.value="";
+    
+
+     })
+     var remove=document.getElementById("remove");
+     remove.addEventListener("click",function(){
+        var input=document.getElementById("input").value;
+         var ul=document.querySelector("ul");
+         ul.removeChild(input);
+     })
+
+    </script>

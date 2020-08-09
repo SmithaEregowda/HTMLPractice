@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <style>
+        form {
+            margin-left: 850px;
+            margin-top: 100px;
+            border: 2px solid black;
+            margin-right: 750px;
+            height: 500px;
+            width: 500px;
+            text-align: center;
+            background-color: teal;
+        }
+
+        input {
+            background-color: whitesmoke;
+        }
+
+        table,
+        th,
+        tr,
+        td {
+            border: 1px solid black;
+            margin-left: 850px;
+            margin-top: 100px;
+            border-collapse: collapse;
+        }
+
+
+        .del {
+            background-color: red;
+        }
+
+        .edit {
+            background-color: green;
+        }
+    </style>
+    <script src="jquery-3.5.1.js">
+    </script>
+    <script>
+        var newsarray = [];
+        var count = 0;
+        $(document).ready(function () {
+            $("#submit").click(function () {
+                var username = $("#name");
+                var email = $("#email");
+                var radiobtn = $('[name="radio"]:checked').val();
+                var newscat = $('[name="nc"]:checked');
+                for (var i = 0; i < newscat.length; i++) {
+                    var newscatvalue = newscat.map(function () {
+                        return $(this).val();
+                    }).get().join(",");
+                }
+                count = count + 1;
+                var newsobj = {
+                    countvalue: count,
+                    username: username.val(),
+                    email: email.val(),
+                    radiobtn: radiobtn,
+                    newscatvalue: newscatvalue
+                }
+
+                localStorage.setItem("newsobj", JSON.stringify(newsobj));
+                newsjson = localStorage.getItem("newsobj");
+                retrivenewsobj = JSON.parse(newsjson);
+
+                newsarray.push(retrivenewsobj);
+                console.log(newsarray);
+                var tbody = $("#tb");
+                var text = ""
+                for (var i = 0; i < newsarray.length; i++) {
+                    text += "<tr >" + "<td class='count'>" + newsarray[i].countvalue + "</td>"
+                        + "<td class='name'>" + newsarray[i].username + "</td>"
+                        + "<td >" + newsarray[i].email + "</td>" +
+                        "<td>" + newsarray[i].radiobtn + "</td>"
+                        + "<td>" + newsarray[i].newscatvalue + "</td>"
+                        + "<td>" + '<button class="edit" >' + "edit" + "</button>" + " "
+                        + "<button class='del'>" + "delete" + "</button>" + "</td>"
+                        + "</tr>";
+
+                }
+                tbody.html(text);
+                $(document).on("click", ".del", function () {
+                    $(this).parents('tr').remove();
+                });
+
+                $(document).on("click", ".edit", function () {
+
+                    $("#name").val($(this).parents('tr').find('td:eq(1)').text());
+                    $("#email").val($(this).parents('tr').find('td:eq(2)').text());
+                    $('[name="nc"]').val();
+                    var radiocell = $(this).parents('tr').find('td:eq(3)').text();
+                    if (radiocell == "male") {
+                        $("#m").val(radiocell).prop("checked", true);
+                    }
+                    if (radiocell == "female") {
+                        $("#f").val(radiocell).prop("checked", true);
+                    }
+                    var checkboxcell = $(this).parents('tr').find('td:eq(4).checkbox').text();
+                    if (checkboxcell == "times of india") {
+                        $("#toi").val(checkboxcell).prop("checked", true);
+                    }
+
+
+                });
+
+            });
+
+
+        });
+    </script>
+
+<body>
+    <div class="container">
+
+        <form id="newsform">
+            <h1>subscribe to news letter</h1><br><br>
+            username
+            <input id="name" type="text" placeholder="username"><br><br>
+            email id:
+            <input id="email" type="email" placeholder="email"><br><br>
+            Gender:
+            <input name="radio" value="male" id="m" type="radio">male&nbsp;
+            <input name="radio" value="female" id="f" type="radio">female<br><br>
+            newscategories:<br><br>
+            times of india:
+            <input type="checkbox" value="times of india" id="toi" name="nc"><br><br>
+            Decnherald:
+            <input type="checkbox" value="Decnherald" id="dec" name="nc"><br><br>
+            Prajavani:
+            <input type="checkbox" value="Prajavani" id="praj" name="nc"><br><br>
+            <button id="reset">reset</button>&nbsp;&nbsp; <button type="button" id="submit">submit</button>&nbsp;&nbsp;
+            <button>cancel</button><br><br>
+        </form>
+    </div>
+    <div id="tablecontainer">
+        <table>
+            <thead>
+                <th>ID</th>
+                <th>username</th>
+                <th>email</th>
+                <th>gender</th>
+                <th>newscategories</th>
+                <th>edit/delete</th>
+            </thead>
+
+            <tbody id="tb">
+
+            </tbody>
+        </table>
+    </div>
+    <p id=" demo"></p>
+</body>
+
+</html>
