@@ -146,7 +146,7 @@
         $(document).ready(function () {
             $(document).on("click", ".submit", function (event) {
                 event.preventDefault();
-                if (validateNewsForm() === true) {
+                if (validateRegisterForm() === true) {
 
                 }
 
@@ -170,13 +170,20 @@
 
         function validateRegisterForm() {
             var genderchecked = $('[name="gender"]');
-            if (genderchecked.checked) {
+
+            if (genderchecked.prop("checked")) {
                 return true;
             }
             else {
                 alert("gender required");
             }
-
+    if($(".skills").prop("checked")){
+                return true;
+            }
+            else{
+                console.log("check box required");
+            }
+            calculateAge()
         }
         function calculateAge() {
             var dob = $(".dob").val();
@@ -189,7 +196,7 @@
                 return true;
             }
             else {
-                return false;
+              console.log("age is not sufficient");
             }
         }
     </script>
