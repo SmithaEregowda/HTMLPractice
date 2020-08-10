@@ -49,7 +49,7 @@
                         </tr>
                         <tr>
                             <td>Mobile:</td>
-                            <td><input type="text" name="studentMobile" id="mobile"></td>
+                            <td><input type="text" name="studentMobile" id="mobile" maxlength="10"></td>
                         </tr>
                         <tr>
                             <td>Email:</td>
@@ -78,11 +78,11 @@
                             <td>Country:</td>
                             <td><select name="studentCountry">
                                     <option value="">Select</option>
-                                    <option value="india">india</option>
-                                    <option value="pakisthan">pakisthan</option>
-                                    <option value="australia">australia</option>
-                                    <option value="south_africa">south_africa</option>
-                                    <option value="england">england</option>
+                                    <option value="india" class="country">india</option>
+                                    <option value="pakisthan" class="country">pakisthan</option>
+                                    <option value="australia" class="country">australia</option>
+                                    <option value="south_africa" class="country">south_africa</option>
+                                    <option value="england" class="country">england</option>
                                 </select></td>
                         </tr>
                         <tr>
@@ -92,8 +92,7 @@
                         <tr>
                             <td>Password</td>
                             <td>
-                                <input type="password" name="password" id="pwd" size="20"
-                                    onkeyup="return check_password_safety(this.value);" title="Password" min="6"
+                                <input type="password" name="password" id="pwd" size="20" title="Password" min="6"
                                     maxlength="20" required>
                                 <span id="password_info"><b></b></span></td>
                         </tr>
@@ -102,8 +101,8 @@
                             <td>Re-type password</td>
                             <td>
                                 <input type="password" id="pass2" placeholder="Confirm Password" title="Password"
-                                    min="6" maxlength="20" required onkeyup="return check_password_confirm();">
-                                <span id="password_confirm"><b></b></td>
+                                    min="6" maxlength="20" required>
+                                <span id="password_confirm" style="color: red;"><b></b></td>
 
                         </tr>
                         <tr>
@@ -169,21 +168,35 @@
 
 
         function validateRegisterForm() {
-            var genderchecked = $('[name="gender"]');
-
-            if (genderchecked.prop("checked")) {
+            calculateAge();
+            checkPassword();
+            radiobutton();
+            checkbox();
+            selectFun();
+        }
+        function selectFun() {
+            if ($(".cuntry").selected) {
                 return true;
             }
             else {
-                alert("gender required");
+                console.log("selction required");
             }
-    if($(".skills").prop("checked")){
+        }
+        function checkbox() {
+            if ($(".skills").prop("checked")) {
                 return true;
             }
-            else{
+            else {
                 console.log("check box required");
             }
-            calculateAge()
+        }
+        function radiobutton() {
+            if ($('[name="gender"]').prop("checked")) {
+                return true;
+            }
+            else {
+                console.log("gender required");
+            }
         }
         function calculateAge() {
             var dob = $(".dob").val();
@@ -196,8 +209,21 @@
                 return true;
             }
             else {
-              console.log("age is not sufficient");
+                console.log("age is not sufficient");
             }
+        }
+        function checkPassword() {
+            var password = $("#pwd").val();
+            var retypePassword = $("#pass2").val();
+            if (password == retypePassword) {
+                return true;
+            }
+            else {
+                $("#password_confirm").html("pattren mis matched");
+
+            }
+
+
         }
     </script>
 </body>
