@@ -41,28 +41,33 @@
                     <tbody>
                         <tr>
                             <td>First Name:</td>
-                            <td><input type="text" name="studentFirstName" class="name"></td>
+                            <td><input type="text" name="studentFirstName" id="firstname" class="name" minlength="3">
+                                <span id="firstnamerr" style="color: red;"></span></td>
                         </tr>
                         <tr>
                             <td>Last Name:</td>
-                            <td><input type="text" name="studentLastName" class="name"></td>
+                            <td><input type="text" name="studentLastName" id="lastname" class="name" min="2">
+                                <span id="lastnamerr" style="color: red;"></span></td>
                         </tr>
                         <tr>
                             <td>Mobile:</td>
-                            <td><input type="text" name="studentMobile" id="mobile" maxlength="10"></td>
+                            <td><input type="text" name="studentMobile" id="mobile" maxlength="10" required></td>
                         </tr>
                         <tr>
                             <td>Email:</td>
-                            <td><input type="email" name="studentEmail"></td>
+                            <td><input type="email" name="studentEmail" id="email"> <span id="emailValid"
+                                    style="color: red;"></span></td>
                         </tr>
                         <tr>
                             <td>Data-of-birth:</td>
-                            <td><input type="date" name="studentDOB" class="dob" placeholder="mm/dd/yyyy"></td>
+                            <td id="date"><input type="date" name="studentDOB" class="dob" placeholder="mm/dd/yyyy">
+                            </td>
                         </tr>
                         <tr>
                             <td>Gender:</td>
                             <td><input type="radio" name="gender" value="Male"> Male
                                 <input type="radio" name="gender" value="Female"> Female
+                                <span id="gendermiss" style="color: red;"></span>
                             </td>
                         </tr>
                         <tr>
@@ -71,12 +76,13 @@
                                 <input type="checkbox" class="skills">Java
                                 <input type="checkbox" class="skills">JavaScript
                                 <input type="checkbox" class="skills">Python
+                                <span id="skillsmiss" style="color: red;"></span>
                             </td>
                         </tr>
 
                         <tr>
                             <td>Country:</td>
-                            <td><select name="studentCountry">
+                            <td id="cnborder"><select id="selectmis" name="studentCountry">
                                     <option value="">Select</option>
                                     <option value="india" class="country">india</option>
                                     <option value="pakisthan" class="country">pakisthan</option>
@@ -101,7 +107,7 @@
                             <td>Re-type password</td>
                             <td>
                                 <input type="password" id="pass2" placeholder="Confirm Password" title="Password"
-                                    min="6" maxlength="20" required>
+                                    min="6" maxlength="20" >
                                 <span id="password_confirm" style="color: red;"><b></b></td>
 
                         </tr>
@@ -168,63 +174,168 @@
 
 
         function validateRegisterForm() {
+            firstnameMin();
+            lastnameMin()
+            emailValid();
             calculateAge();
             checkPassword();
             radiobutton();
             checkbox();
             selectFun();
+
         }
-        function selectFun() {
-            if ($(".cuntry").selected) {
-                return true;
+        function firstnameMin() {
+            var minLength = 3;
+            var firstnameValue = $("#firstname").val();
+            if (firstnameValue == "") {
+                $("#firstnamerr").html("please enter the value");
+                return false;
+            }
+            else if (firstnameValue.length < minLength) {
+                $("#firstnamerr").html("the name is too short!!");
+                return false;
             }
             else {
-                console.log("selction required");
+                return true;
             }
+
         }
+        $("#firstname").keyup(function(){
+            var firstnameValue = $("#firstname").val();
+            if (firstnameValue.length>0){
+                $("#firstnamerr").html("");
+            }
+        });
+        function lastnameMin() {
+            var minLength = 2;
+            var lastnameValue = $("#lastname").val();
+            if (lastnameValue == "") {
+                $("#lastnamerr").html("please enter the value");
+            }
+
+            else if (lastnameValue.length < minLength) {
+                $("#lastnamerr").html("the name is too short!!");
+            }
+            else {
+                return true;
+            }
+
+        }
+        $("#lastname").keyup(function(){
+           
+                $("#lastnamerr").html("");
+            
+        });
         function checkbox() {
-            if ($(".skills").prop("checked")) {
+            if ($(".skills:checked").length>0) {
                 return true;
             }
             else {
-                console.log("check box required");
+                $("#skillsmiss").html("*required");
             }
         }
+        $(".skills").change(function(){
+            if ($(".skills:checked").length>0) {
+               $("#skillsmiss").html("");
+            }
+        });
+
         function radiobutton() {
-            if ($('[name="gender"]').prop("checked")) {
+            if ($('[name="gender"]:checked').length>0) {
                 return true;
             }
             else {
-                console.log("gender required");
+                $("#gendermiss").html("*required");
             }
         }
+        $('[name="gender"]').change(function(){
+            if ($('[name="gender"]:checked').length>0) {
+               
+               $("#gendermiss").html("");
+            }
+        });
         function calculateAge() {
             var dob = $(".dob").val();
-            var dobdate = new Date(dob);
-            var nowdate = new Date();
-            var diff = nowdate.getTime() - dobdate.getTime();
-            var agedate = new Date(diff);
-            var ageyears = Math.abs(agedate.getUTCFullYear() - 1970);
-            if (ageyears >= 18) {
-                return true;
+            if (dob.length == 0) {
+                $("#date").css("border", "1px solid red");
             }
-            else {
-                console.log("age is not sufficient");
+            else if (dob) {
+                var dobdate = new Date(dob);
+                var nowdate = new Date();
+                var diff = nowdate.getTime() - dobdate.getTime();
+                var agedate = new Date(diff);
+                var ageyears = Math.abs(agedate.getUTCFullYear() - 1970);
+
+                if (ageyears >= 18) {
+                    return true;
+                }
+                else {
+                    alert("age is not sufficient");
+                }
             }
         }
+        $(".dob").change(function(){
+            var dob = $(".dob").val();
+            if (dob.length>0) {
+                $("#date").css("border", "1px solid black");
+            }
+        });
         function checkPassword() {
             var password = $("#pwd").val();
             var retypePassword = $("#pass2").val();
-            if (password == retypePassword) {
+            if(retypePassword==""){
+                $("#password_confirm").html("*please enter the password")
+            }
+          else  if (password == retypePassword) {
                 return true;
             }
             else {
-                $("#password_confirm").html("pattren mis matched");
+                $("#password_confirm").html("*pattren mis matched");
+
+            }
+        }
+        $("#pass2").keyup(function(){
+            
+                $("#password_confirm").html("");
+
+           
+        });
+        function selectFun() {
+            if ($(".country:selected").length>0) {
+               
+                return true;
+            }
+            else {
+                $("#cnborder").css("border", "1px solid red");
+            }
+        }
+        $(".country").click(function(){
+            
+                $("#cnborder").css("border", "1px solid black"); 
+            
+        });
+        function emailValid() {
+            var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            var email = $("#email").val();
+            if (email == "") {
+                $("#emailValid").html("*please enter the  email");
+            }
+            else if (mailformat.test(email)) {
+                return true;
+            }
+            else {
+                $("#emailValid").html("*please enter the valid email");
 
             }
 
-
         }
+        $("#email").change(function(){
+            var email = $("#email").val();
+            if(email.length>0){
+                $("#emailValid").html("")
+            }
+        });
+
     </script>
 </body>
 
